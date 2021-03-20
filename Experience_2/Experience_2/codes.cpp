@@ -269,44 +269,44 @@ using namespace std;
 //}
 
 
-//int main()//C. 三串合一（指针与字符数组）
-//{
-//	int t;
-//	char str1[12];
-//	char str2[12];
-//	char str3[12];
-//	cin >> t;
-//	while (t--)
-//	{
-//		cin >> str1 >> str2 >> str3;
-//		int n,i;
-//		int s1, s2, s3, e1, e2, e3;
-//		cin >> s1 >> e1 >> s2 >> e2 >> s3 >> e3;
-//		n = e1 + e2 + e3 - s1 - s2 - s3 + 4;
-//		char*p = new char [n+1];
-//		for (i = 0; i < e1 - s1 + 1; i++)
-//		{//cdeBCDEFdee
-//			*(p+i) = *(str1+s1-1+i);
-//			*(p + i + 1) = '\0';
-//		}
-//		for (i = 0; i < e2 - s2 + 1; i++)
-//		{
-//			*(p + i + e1 - s1 + 1) = *(str2 + s2 - 1 + i);
-//			*(p + i + e1 - s1 + 2) = '\0';
-//		}
-//		for (i = 0; i < e3 - s3 + 1; i++)
-//		{
-//			*(p + i + e1 - s1 + 1 + e2 - s2 + 1) = *(str3 + s3 - 1 + i);
-//			*(p + i + e1 - s1 + 1 + e2 - s2 + 2) = '\0';
-//		}
-//
-//		cout << p<<endl;
-//		delete[] p;
-//		p = NULL;
-//	}
-//
-//	return 0;
-//}
+int main()//C. 三串合一（指针与字符数组）
+{
+	int t;
+	char str1[12];
+	char str2[12];
+	char str3[12];
+	cin >> t;
+	while (t--)
+	{
+		cin >> str1 >> str2 >> str3;
+		int n,i;
+		int s1, s2, s3, e1, e2, e3;
+		cin >> s1 >> e1 >> s2 >> e2 >> s3 >> e3;
+		n = e1 + e2 + e3 - s1 - s2 - s3 + 4;
+		char*p = new char [n+1];
+		for (i = 0; i < e1 - s1 + 1; i++)
+		{//cdeBCDEFdee
+			*(p+i) = *(str1+s1-1+i);
+			//*(p + i + 1) = '\0';
+		}
+		for (i = 0; i < e2 - s2 + 1; i++)
+		{
+			*(p + i + e1 - s1 + 1) = *(str2 + s2 - 1 + i);
+			//*(p + i + e1 - s1 + 2) = '\0';
+		}
+		for (i = 0; i < e3 - s3 + 1; i++)
+		{
+			*(p + i + e1 - s1 + 1 + e2 - s2 + 1) = *(str3 + s3 - 1 + i);
+			//*(p + i + e1 - s1 + 1 + e2 - s2 + 2) = '\0';
+		}
+		*(p + n-1) = '\0';
+		cout << p<<endl;
+		delete[] p;
+		p = NULL;
+	}
+
+	return 0;
+}
 
 
 
