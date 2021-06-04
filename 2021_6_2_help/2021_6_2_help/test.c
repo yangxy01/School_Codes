@@ -1,68 +1,105 @@
 #define _CRT_SECURE_NO_WARNINGS 1
 #include<stdio.h>
 #include<string.h>
-//Lucky
-int isLucky(char word[],int len)
-{
-	int count1[26] = { 0 };
-	int count2[26] = { 0 };
-	int num = 0,max=0,min=99;
-	for (int i = 0; i < len; i++)
-	{
-		if (word[i] >= 'a'&&word[i] <= 'z')
-		{
-			num = word[i] - 'a';
-			count1[num]++;
-		}
-		else
-		{
-			num = word[i] - 'A';
-			count2[num]++;
-		}
-	}
-	for (int i = 0; i < 26; i++)
-	{
-		if (count1[i]>0 && count1[i] > max)
-			max = count1[i];
-		if (count1[i]>0 && count1[i] < min)
-			min = count1[i];
-	}
-	int sub = max - min;
-	if (sub > 2)
-	{
-		for (int i = 2; i < sub; i++)
-		{
-			if (sub%i == 0)
-				return -1;
-		}
-		return sub;
-	}
-	else if (sub == 2)
-		return 2;
-	else
-		return -1;
-}
 
 int main()
 {
-	char word[30];
-	int N;
-	scanf("%d", &N);
-	while (N--)
+	char str[100];
+	int i = 0;
+	gets(str);
+	int len = strlen(str);
+	for (i = 0; i < len;i++)
 	{
-		scanf("%s", word);
-		int len = strlen(word);
-		int ret = isLucky(word,len);
-		if (ret == -1)
-			printf("No Answer\n-1\n");
-		else
+		if (str[i] >= 'A'&&str[i] <= 'Z')
 		{
-			printf("Lucky Word\n%d\n",ret);
+			str[i] = 'Z' - (str[i] - 'A');
 		}
+		i++;
 	}
 
+	printf("%s", str);
 	return 0;
 }
+
+//int main()
+//{
+//	char str[100];
+//	int i = 0;
+//	while (1)
+//	{
+//		str[i] = getchar();
+//		if (str[i] == '\n')
+//			break;
+//		i++;
+//	}
+//	str[i] = '\0';//字符串结尾要以'\0'结束
+//	printf("%s", str);
+//	return 0;
+//}
+
+
+////Lucky
+//int isLucky(char word[],int len)
+//{
+//	int count1[26] = { 0 };
+//	int count2[26] = { 0 };
+//	int num = 0,max=0,min=99;
+//	for (int i = 0; i < len; i++)
+//	{
+//		if (word[i] >= 'a'&&word[i] <= 'z')
+//		{
+//			num = word[i] - 'a';
+//			count1[num]++;
+//		}
+//		else
+//		{
+//			num = word[i] - 'A';
+//			count2[num]++;
+//		}
+//	}
+//	for (int i = 0; i < 26; i++)
+//	{
+//		if (count1[i]>0 && count1[i] > max)
+//			max = count1[i];
+//		if (count1[i]>0 && count1[i] < min)
+//			min = count1[i];
+//	}
+//	int sub = max - min;
+//	if (sub > 2)
+//	{
+//		for (int i = 2; i < sub; i++)
+//		{
+//			if (sub%i == 0)
+//				return -1;
+//		}
+//		return sub;
+//	}
+//	else if (sub == 2)
+//		return 2;
+//	else
+//		return -1;
+//}
+//
+//int main()
+//{
+//	char word[30];
+//	int N;
+//	scanf("%d", &N);
+//	while (N--)
+//	{
+//		scanf("%s", word);
+//		int len = strlen(word);
+//		int ret = isLucky(word,len);
+//		if (ret == -1)
+//			printf("No Answer\n-1\n");
+//		else
+//		{
+//			printf("Lucky Word\n%d\n",ret);
+//		}
+//	}
+//
+//	return 0;
+//}
 
 
 
