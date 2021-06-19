@@ -31,6 +31,7 @@ int main()
 
 		for (auto x : order)
 		{
+			cout << x << " ";
 			for (auto y : mapStud)
 			{
 				if (y.first == x)
