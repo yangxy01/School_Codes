@@ -19,9 +19,9 @@ public:
 	void SeqListPrint();
 };
 
-SeqList::SeqList(int sz)
+SeqList::SeqList(int s )
 {
-	capacity = sz>MAXSIZE ? sz : MAXSIZE;
+	capacity = s>MAXSIZE ? s : MAXSIZE;
 	list = new int[capacity];
 	size = 0;
 }
